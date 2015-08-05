@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<link rel = "stylesheet" href="css/bootstrap.min.css">
+<div class="container-fluid">
+<nav class="navbar navbar-inverse">
+<a class="navbar-brand">subin dev<sup>&reg;TM</sup></a>
+</nav>
+<br/>
+<form role="form" class="form-inline">
+<div class="form-group">
+<label for="user" >username
+<input id="user" class="form-control" />
+</div>
+</form>
+<table class="table table-condensed" >
+<tr class="success"><th>sdjsdh</th></tr>
+<tr class="danger"><td>content</td></tr><tr><td>content</td></tr><tr><td>content</td></tr>
+</table>
+
+<span class="glyphicon glyphicon-user "></span>
+</div>
+</html>
