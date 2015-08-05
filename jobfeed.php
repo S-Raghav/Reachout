@@ -1,9 +1,9 @@
-<?php include 'header.php'; 
+<?php include 'header.php';
 include 'dbcon.php';?>
 <script>
 
 function get_bid(money)
-{	
+{
 	var res = prompt('Enter bid value in Rs.' ,money);
 	document.getElementById('bid').value=res;
 	return false;
@@ -12,7 +12,7 @@ function get_bid(money)
 
 <div class="col-md-8 col-md-offset-2 table-bordered " >
 <br/>
-<p class="lead text-primary">Here is a list of things you may be interested in 
+<p class="lead text-primary">Here is a list of things you may be interested in
 <a class="btn btn-info pull-right" href="post.php">Post something</a>
 </p>
 <br/>
@@ -24,7 +24,7 @@ $i = 0;//for id generation
 if($res==TRUE)
 
 while($detail=mysqli_fetch_array($res))
-{   
+{
    if($detail['poster_id']==$_SESSION['id']){
  ?>
 
@@ -32,10 +32,10 @@ while($detail=mysqli_fetch_array($res))
  <span class="glyphicon glyphicon-remove  text-danger"></span></a><br/><br/>
 <?php } ?>
  <div class="clearfix">
- <?php 
+ <?php
 	$query = "select * from bids where post_id='".$detail['post_id']."'" ;
     $r1=mysqli_query($con,$query);
-	
+
 	if($r1==TRUE){
 		$r = mysqli_fetch_array($r1);
 		if($r['status']==1){
@@ -48,7 +48,7 @@ else if($r['status']!='' and $r['status']==0){ ?>
     } ?>
 
  <img src="dp.jpg">
-<strong class="col-md-offset-3"> <?php echo $detail['poster_id'] ?></strong> posted a 
+<strong class="col-md-offset-3"> <?php echo $detail['poster_id'] ?></strong> posted a
 <?php echo $detail['type'] ?> in <em><?php echo $detail['domain'] ?></em>
 <?php if($detail['type']=='grievance') {
  $query = "select * from grievance where post_id='".$detail['post_id']."'";
@@ -71,9 +71,9 @@ $current = ($ppl['current']*100/$ppl['required']);
  <input type="hidden" name='post_id' value='<?php echo $detail['post_id'] ?>' />
 <br/>
 <div class="progress">
-<div class="progress-bar progress-bar-info progress-bar-striped" 
+<div class="progress-bar progress-bar-info progress-bar-striped"
     aria-valuenow='<?php echo $current ?>'
-	aria-valuemin=0 
+	aria-valuemin=0
     aria-valuemax='<?php echo $required ?>'
 	style="min-width:4em;width:<?php echo $current ?>%">
 	<?php echo $current ?>%
@@ -83,7 +83,7 @@ $current = ($ppl['current']*100/$ppl['required']);
 <?php }else{ ?>
 <div class="pull-right">
 <form action="bid.php" method="POST" >
-<input type="hidden" name='poster_id' value='<?php echo $_SESSION['id'] ?>' />
+<input type="hidden" name='bidder_id' value='<?php echo $_SESSION['id'] ?>' />
 <input type="hidden" name='post_id' value='<?php echo $detail['post_id'] ?>' />
 <input type="hidden" name='bid_value' id='bid' />
 <button class="btn btn-success" onclick="get_bid('<?php echo $detail['highest_bid'] ?>')">
@@ -97,7 +97,7 @@ View Bids
 </div>
 <br/>
 <?php } ?>
-<button class="btn btn-primary" 
+<button class="btn btn-primary"
 data-toggle='collapse' aria-expanded='true'
 aria-controls='content' href='#<?php echo $i ?>'>View Description</button>
 <div class="collapse" id='<?php echo $i ?>'>
@@ -106,12 +106,12 @@ aria-controls='content' href='#<?php echo $i ?>'>View Description</button>
 </div>
 </div>
 
-<?php 
+<?php
 $i++;
  ?>
 <hr style="border-color:#5bc0de;width:100%;"/>
-<?php 
-      
+<?php
+
  }
 include 'footer.php' ?>
 </div>

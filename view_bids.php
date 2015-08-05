@@ -1,7 +1,7 @@
 <?php include 'header.php' ;
 include 'dbcon.php'?>
 <div class="col-md-8 col-md-offset-2 table-bordered" >
-<?php 
+<?php
 extract($_GET);
 $query="select * from bids where post_id=".$pid;
 $rows=0;
@@ -18,15 +18,15 @@ if($res=mysqli_query($con,$query))
 	<th>Bidder</th>
 	<th >Bid</th>
 	</tr>
-<?php 
+<?php
 $res=mysqli_query($con,$query);
 if($res)
 while($detail=mysqli_fetch_array($res))
-{	
+{
 	?>
 	<form role="form" action='accept_bid.php' method='POST'>
 <input type="hidden" name='post_id' value='<?php echo $detail['post_id']; ?>' />
-<input type="hidden" name='poster_id' value='<?php echo $detail['bidder_id']; ?>' />
+<input type="hidden" name='bidder_id' value='<?php echo $detail['bidder_id']; ?>' />
 <input type="hidden" name='bid_value' value='<?php echo $detail['bid_value']; ?>' />
 	<tr>
 	<td >
@@ -34,9 +34,9 @@ while($detail=mysqli_fetch_array($res))
 	</td>
 	<td >
 		<?php echo $detail['bid_value'] ?>
-	
-	<?php 
-	if($detail['poster_id']!=$_SESSION['id'] and $detail['status']==0){
+
+	<?php
+	if($detail['bidder_id']!=$_SESSION['id'] and $detail['status']==0){
 		?>
 	<button class="btn btn-success pull-right">
 	<span class=" glyphicon glyphicon-ok "></span>

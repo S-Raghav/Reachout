@@ -7,19 +7,19 @@
 <body>
 <nav class="navbar navbar-inverse">
 <a class="navbar-brand">Reach Out</a>
-<?php 
+<?php
 if (isset($_SESSION['id'])){
 ?>
 <ul class="nav navbar-nav pull-right">
 <li>
 <a href="jobfeed.php" ><strong style="color:white">Job Feed</strong></a></li>
 <li>
-<a href="profile.php" class="navbar-nav" data-toggle="tooltip" title="View Profile">Hi,<?php echo $_SESSION['id'] ?> <span class="glyphicon glyphicon-user"></span>
+<a href="#">Hi,<?php echo $_SESSION['id'] ?> <span class="glyphicon glyphicon-user"></span>
 </a>
 </li>
 <li>
 <a class="navbar-nav">
-<span class="glyphicon glyphicon-hand-right" style="color:yellow"> <?php echo $_SESSION['reliability'] ?></span> 
+<span class="glyphicon glyphicon-hand-right" style="color:yellow"> <?php echo $_SESSION['reliability'] ?></span>
 </a>
 </li>
 <li>
@@ -39,6 +39,6 @@ else { ?>
 <input id="pwd" name='pwd' type="password" class="form-control" placeholder="password"/>
 </div>
 <button class="btn btn-primary ">Let's Go</button>
-</form> 
+</form>
 <?php } ?>
 </nav>
